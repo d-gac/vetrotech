@@ -8,7 +8,12 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 /**
- * @OA\Info(title="My First API", version="0.1")
+ * @OA\Info(
+ *   title="Vetrotech",
+ *   version="1.0",
+ *   contact={
+ *     "email": "P1@zetorzeszow.pl"
+ *   }),
  */
 
 

@@ -14,5 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "swagger-ui": "^3.52.0",
+        "swagger-ui-dist": "^4.0.0-beta.4"
     }
 }

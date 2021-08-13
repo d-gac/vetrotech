@@ -1,21 +1,137 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "My First API",
-        "version": "0.1"
+        "title": "Vetrotech",
+        "contact": {
+            "email": "P1@zetorzeszow.pl"
+        },
+        "version": "1.0"
     },
     "paths": {
-        "/api/testing": {
+        "/api/product": {
             "get": {
-                "operationId": "2d1498efaae5e5dfc3a534cf76aa9bdc",
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Show list products",
+                "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
                 "responses": {
                     "200": {
-                        "description": "Display a listing of projects."
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Add product",
+                "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Przykładowa nazwa produktu"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Przykładowa opis produktu"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/product/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Show one product",
+                "operationId": "2768d88590e39a7ded1d0032e64dded7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete one product",
+                "operationId": "c830155516bad1f72b0081160edeb2ac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
                     }
                 }
             }
         }
     },
+    "tags": [
+        {
+            "name": "Products",
+            "description": "Products Management"
+        }
+    ],
     "security": [
         []
     ]
