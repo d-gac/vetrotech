@@ -13,7 +13,7 @@
                 "tags": [
                     "Products"
                 ],
-                "summary": "Show list products",
+                "summary": "Wyświetl listę produktów",
                 "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
                 "responses": {
                     "200": {
@@ -31,7 +31,7 @@
                 "tags": [
                     "Products"
                 ],
-                "summary": "Add product",
+                "summary": "Dodaj produkt",
                 "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
                 "requestBody": {
                     "content": {
@@ -44,7 +44,7 @@
                                     },
                                     "description": {
                                         "type": "string",
-                                        "example": "Przykładowa opis produktu"
+                                        "example": "Przykładowy opis produktu"
                                     },
                                     "status": {
                                         "type": "string",
@@ -58,7 +58,18 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Error"
@@ -74,12 +85,13 @@
                 "tags": [
                     "Products"
                 ],
-                "summary": "Show one product",
+                "summary": "Wyświetl produkt",
                 "operationId": "2768d88590e39a7ded1d0032e64dded7",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "required": true,
                         "schema": {
                             "type": "integer"
                         }
@@ -97,16 +109,149 @@
                     }
                 }
             },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Edytuj produkt",
+                "operationId": "d3467c795490afbb49680821c9bd6b0d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Przykładowa zmieniona nazwa produktu"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Przykładowy zmieniony opis produktu"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "0"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
             "delete": {
                 "tags": [
                     "Products"
                 ],
-                "summary": "Delete one product",
+                "summary": "Usuń produkt",
                 "operationId": "c830155516bad1f72b0081160edeb2ac",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/product/allProduct": {
+            "get": {
+                "tags": [
+                    "Deleted products"
+                ],
+                "summary": "Lista wszystkich utworzonych produktów",
+                "operationId": "e6a13445c2186b8f04dbc72638ffd6aa",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/product/deleted": {
+            "get": {
+                "tags": [
+                    "Deleted products"
+                ],
+                "summary": "Lista usuniętych produktów",
+                "operationId": "9b9b852bcafd209adefce07ecef1e42e",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/product/renew/{id}": {
+            "get": {
+                "tags": [
+                    "Deleted products"
+                ],
+                "summary": "Przywróć produkt",
+                "operationId": "b5de1fcce74f07405ed1b6709af9aa7a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
                         "schema": {
                             "type": "integer"
                         }
@@ -130,6 +275,10 @@
         {
             "name": "Products",
             "description": "Products Management"
+        },
+        {
+            "name": "Deleted products",
+            "description": "Deleted products Management"
         }
     ],
     "security": [

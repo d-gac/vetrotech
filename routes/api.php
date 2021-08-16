@@ -19,4 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('product/allProduct', [ProductController::class, 'allProduct']);
+Route::get('product/deleted', [ProductController::class, 'deleted']);
+Route::get('product/renew/{id}', [ProductController::class, 'renew']);
+
 Route::resource('/product', ProductController::class);
+
+
