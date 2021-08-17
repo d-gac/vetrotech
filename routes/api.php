@@ -23,6 +23,6 @@ Route::get('product/allProduct', [ProductController::class, 'allProduct']);
 Route::get('product/deleted', [ProductController::class, 'deleted']);
 Route::get('product/renew/{id}', [ProductController::class, 'renew']);
 
-Route::resource('/product', ProductController::class);
+Route::apiResource('/product', ProductController::class);
 
 

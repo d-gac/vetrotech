@@ -352,7 +352,7 @@ class ProductController extends Controller
             Product::where('id', $id)->restore();
             return "Produkt (ID: " . $id . ") został przywrócony";
         } else {
-            return "Produkt (ID: " . $id . ") nie został wcześniej usunięty";
+            return "Produkt (ID: " . $id . ") nie został wcześniej usunięty lub nie istnieje";
         }
     }
 }
