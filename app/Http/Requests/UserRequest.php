@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * @var array
@@ -18,14 +18,14 @@ class ProductRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'name' => 'required|string|min:3',
-            'description' => 'required|string|min:10',
-            'status' => 'required|boolean',
+            'name' => 'required|string|min:5',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
         ],
         self::METHOD_PUT => [
-            'name' => 'required|string|min:3',
-            'description' => 'required|string|min:10',
-            'status' => 'required|boolean',
+            'name' => 'required|string|min:5',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
         ],
         self::METHOD_DELETE => [
             'powod' => 'required|string',
@@ -51,17 +51,18 @@ class ProductRequest extends FormRequest
     {
         return self::$rules[$this->getMethod()] ?? [];
     }
+
     public function messages()
     {
         return [
-            'name.required' => 'Pole Nazwa jest wymagane',
-            'name.string' => 'Pole Nazwa musi zawierać tekst',
-            'name.min' => 'Pole Nazwa musi składać się z conajmniej 3 znaków',
-            'description.required' => 'Pole Opis jest wymagane',
-            'description.string' => 'Pole Opis musi zawierać tekst',
-            'description.min' => 'Pole Opis musi składać się z conajmniej 10 znaków',
-            'status.required' => 'Pole Status jest wymagane',
-            'status.boolean' => 'Pole Status musi zawierać "0"/"1" lub 0/1',
+            'name.required' => 'Pole nazwa jest wymagane',
+            'name.string' => 'Pole nazwa musi zawierać tekst',
+            'name.min' => 'Pole nazwa musi składać się z conajmniej 3 znaków',
+            'email.required' => 'Pole Email jest wymagane',
+            'email.email' => 'Pole Email musi być podobne do example@com.pl',
+            'email.unique' => 'Ten Email już jest zajęty',
+            'password.required' => 'Pole Hasło jest wymagane',
+            'password.confirmed' => 'Hasła się nie zgadzają',
         ];
     }
 }

@@ -269,6 +269,87 @@
                     }
                 }
             }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Zaloguj",
+                "operationId": "0fc9610184083ac6dddab2c63139225a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@doe.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Wyloguj",
+                "operationId": "67d5147477c548bfbc3f982833bbc7bd",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -279,6 +360,10 @@
         {
             "name": "Deleted products",
             "description": "Deleted products Management"
+        },
+        {
+            "name": "Account",
+            "description": "User authorization"
         }
     ],
     "security": [

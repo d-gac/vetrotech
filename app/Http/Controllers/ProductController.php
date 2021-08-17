@@ -34,8 +34,6 @@ class ProductController extends Controller
      *     description="an ""unexpected"" error"
      *   ),
      *
-     *
-     *
      * )
      */
 
