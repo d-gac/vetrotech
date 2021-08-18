@@ -11,15 +11,15 @@ class ProductController extends Controller
 {
     /**
      * @OA\Tag(
-     *     name="Products",
-     *     description="Products Management",
+     *     name="Produkt",
+     *     description="Zarządzanie produktami",
      * )
      */
 
     /**
      * @OA\Get(
      *     path="/api/product",
-     *     tags={"Products"},
+     *     tags={"Produkt"},
      *     summary="Wyświetl listę produktów",
      *     @OA\Response(
      *     response=200,
@@ -45,7 +45,7 @@ class ProductController extends Controller
     /**
      * @OA\Get(
      *     path="/api/product/{id}",
-     *     tags={"Products"},
+     *     tags={"Produkt"},
      *     summary="Wyświetl produkt",
      *
      *     @OA\Response(
@@ -88,7 +88,7 @@ class ProductController extends Controller
     /**
      * @OA\Post (
      *     path="/api/product",
-     *     tags={"Products"},
+     *     tags={"Produkt"},
      *     summary="Dodaj produkt",
      *
      *     @OA\Response(
@@ -147,7 +147,7 @@ class ProductController extends Controller
     /**
      * @OA\Put(
      *     path="/api/product/{id}",
-     *     tags={"Products"},
+     *     tags={"Produkt"},
      *     summary="Edytuj produkt",
      *
      *     @OA\Response(
@@ -213,7 +213,7 @@ class ProductController extends Controller
     /**
      * @OA\Delete(
      *     path="/api/product/{id}",
-     *     tags={"Products"},
+     *     tags={"Produkt"},
      *     summary="Usuń produkt",
      *
      *     @OA\Response(
@@ -253,15 +253,15 @@ class ProductController extends Controller
 
     /**
      * @OA\Tag(
-     *     name="Deleted products",
-     *     description="Deleted products Management",
+     *     name="Usunięte produkty",
+     *     description="Zarządzanie usuniętymi produktami",
      * )
      */
 
     /**
      * @OA\Get(
      *     path="/api/product/allProduct",
-     *     tags={"Deleted products"},
+     *     tags={"Usunięte produkty"},
      *     summary="Lista wszystkich utworzonych produktów",
      *
      *     @OA\Response(
@@ -288,7 +288,7 @@ class ProductController extends Controller
     /**
      * @OA\Get(
      *     path="/api/product/deleted",
-     *     tags={"Deleted products"},
+     *     tags={"Usunięte produkty"},
      *     summary="Lista usuniętych produktów",
      *
      *     @OA\Response(
@@ -314,7 +314,7 @@ class ProductController extends Controller
     /**
      * @OA\Get(
      *     path="/api/product/renew/{id}",
-     *     tags={"Deleted products"},
+     *     tags={"Usunięte produkty"},
      *     summary="Przywróć produkt",
      *
      *     @OA\Response(

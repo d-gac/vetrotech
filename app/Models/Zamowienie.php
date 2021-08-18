@@ -4,18 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Requests\KontrahentRequest;
+use App\Http\Requests\ZamowienieRequest;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\SygnaturyRekordu;
 
-class Kontrahent extends Model
+class Zamowienie extends Model
 {
     use HasFactory, SoftDeletes, SygnaturyRekordu;
 
     public $guarded = [];
 
-    public function order()
+    public function contractor()
     {
-        return $this->hasMany(Zamowienie::class);
+        return $this->belongsTo(Kontrahent::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

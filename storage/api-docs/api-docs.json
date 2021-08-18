@@ -8,10 +8,344 @@
         "version": "1.0"
     },
     "paths": {
+        "/api/kontrahent": {
+            "get": {
+                "tags": [
+                    "Kontrahent"
+                ],
+                "summary": "Wyświetl listę kontrahentów",
+                "operationId": "74c89d3ee8f8186fc2d2a94ccfb6b3f3",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Kontrahent"
+                ],
+                "summary": "Dodaj kontrahenta",
+                "operationId": "abe0411efd6c6ba1d00c169fb8801a38",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "type": {
+                                        "type": "boolean",
+                                        "example": "0"
+                                    },
+                                    "companyName": {
+                                        "type": "string",
+                                        "example": "Przykładowy nazwa firmy"
+                                    },
+                                    "lname": {
+                                        "type": "string",
+                                        "example": "Jan"
+                                    },
+                                    "fname": {
+                                        "type": "string",
+                                        "example": "Kowalski"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "Rzeszów"
+                                    },
+                                    "postalCode": {
+                                        "type": "string",
+                                        "example": "35-005"
+                                    },
+                                    "street": {
+                                        "type": "string",
+                                        "example": "aleja Tadeusza Rejtana"
+                                    },
+                                    "numberHouse": {
+                                        "type": "string",
+                                        "example": "55"
+                                    },
+                                    "numberApartment": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "numberPhone": {
+                                        "type": "integer",
+                                        "example": "17 282 50 00"
+                                    },
+                                    "email": {
+                                        "type": "email",
+                                        "example": "example@zetorzeszow.pl"
+                                    },
+                                    "comments": {
+                                        "type": "string",
+                                        "example": "Uwagi"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/kontrahent/{id}": {
+            "get": {
+                "tags": [
+                    "Kontrahent"
+                ],
+                "summary": "Wyświetl kontrahenta",
+                "operationId": "a0ff949e97d4a259a5a0ff9e53143c2a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Kontrahent"
+                ],
+                "summary": "Edytuj kontrahenta",
+                "operationId": "cd6258a7009fc0784995191b54e37c5a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "type": {
+                                        "type": "boolean",
+                                        "example": "0"
+                                    },
+                                    "companyName": {
+                                        "type": "string",
+                                        "example": "Przykładowy nazwa firmy"
+                                    },
+                                    "lname": {
+                                        "type": "string",
+                                        "example": "Jan"
+                                    },
+                                    "fname": {
+                                        "type": "string",
+                                        "example": "Kowalski"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "Rzeszów"
+                                    },
+                                    "postalCode": {
+                                        "type": "string",
+                                        "example": "35-005"
+                                    },
+                                    "street": {
+                                        "type": "string",
+                                        "example": "aleja Tadeusza Rejtana"
+                                    },
+                                    "numberHouse": {
+                                        "type": "string",
+                                        "example": "55"
+                                    },
+                                    "numberApartment": {
+                                        "type": "string",
+                                        "example": "1"
+                                    },
+                                    "numberPhone": {
+                                        "type": "integer",
+                                        "example": "17 282 50 00"
+                                    },
+                                    "email": {
+                                        "type": "email",
+                                        "example": "example@zetorzeszow.pl"
+                                    },
+                                    "comments": {
+                                        "type": "string",
+                                        "example": "Uwagi"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Kontrahent"
+                ],
+                "summary": "Usuń kontrahenta",
+                "operationId": "3d2614b8b05c56534323520a08115049",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/kontrahent/allContractor": {
+            "get": {
+                "tags": [
+                    "Usunięci kontrahenci"
+                ],
+                "summary": "Lista wszystkich utworzonych kontrahentów",
+                "operationId": "470adf5f843809cf3554a516eafa6a3a",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/kontrahent/deleted": {
+            "get": {
+                "tags": [
+                    "Usunięci kontrahenci"
+                ],
+                "summary": "Lista usuniętych kontrahentów",
+                "operationId": "f31df96e58d5d8ae5e7f14341c95d782",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/kontrahent/renew/{id}": {
+            "get": {
+                "tags": [
+                    "Usunięci kontrahenci"
+                ],
+                "summary": "Przywróć kontrahenta",
+                "operationId": "5845e3ec4782a31d371f6098f64bcb5e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
         "/api/product": {
             "get": {
                 "tags": [
-                    "Products"
+                    "Produkt"
                 ],
                 "summary": "Wyświetl listę produktów",
                 "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
@@ -29,7 +363,7 @@
             },
             "post": {
                 "tags": [
-                    "Products"
+                    "Produkt"
                 ],
                 "summary": "Dodaj produkt",
                 "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
@@ -83,7 +417,7 @@
         "/api/product/{id}": {
             "get": {
                 "tags": [
-                    "Products"
+                    "Produkt"
                 ],
                 "summary": "Wyświetl produkt",
                 "operationId": "2768d88590e39a7ded1d0032e64dded7",
@@ -111,7 +445,7 @@
             },
             "put": {
                 "tags": [
-                    "Products"
+                    "Produkt"
                 ],
                 "summary": "Edytuj produkt",
                 "operationId": "d3467c795490afbb49680821c9bd6b0d",
@@ -173,7 +507,7 @@
             },
             "delete": {
                 "tags": [
-                    "Products"
+                    "Produkt"
                 ],
                 "summary": "Usuń produkt",
                 "operationId": "c830155516bad1f72b0081160edeb2ac",
@@ -203,7 +537,7 @@
         "/api/product/allProduct": {
             "get": {
                 "tags": [
-                    "Deleted products"
+                    "Usunięte produkty"
                 ],
                 "summary": "Lista wszystkich utworzonych produktów",
                 "operationId": "e6a13445c2186b8f04dbc72638ffd6aa",
@@ -223,7 +557,7 @@
         "/api/product/deleted": {
             "get": {
                 "tags": [
-                    "Deleted products"
+                    "Usunięte produkty"
                 ],
                 "summary": "Lista usuniętych produktów",
                 "operationId": "9b9b852bcafd209adefce07ecef1e42e",
@@ -243,7 +577,7 @@
         "/api/product/renew/{id}": {
             "get": {
                 "tags": [
-                    "Deleted products"
+                    "Usunięte produkty"
                 ],
                 "summary": "Przywróć produkt",
                 "operationId": "b5de1fcce74f07405ed1b6709af9aa7a",
@@ -270,10 +604,68 @@
                 }
             }
         },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Konto"
+                ],
+                "summary": "Zarejestruj",
+                "operationId": "2f25885f3b6f61ca11724ec302d2e439",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "User123"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@doe.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
+        },
         "/api/login": {
             "post": {
                 "tags": [
-                    "Account"
+                    "Konto"
                 ],
                 "summary": "Zaloguj",
                 "operationId": "0fc9610184083ac6dddab2c63139225a",
@@ -323,7 +715,7 @@
         "/api/logout": {
             "post": {
                 "tags": [
-                    "Account"
+                    "Konto"
                 ],
                 "summary": "Wyloguj",
                 "operationId": "67d5147477c548bfbc3f982833bbc7bd",
@@ -354,16 +746,24 @@
     },
     "tags": [
         {
-            "name": "Products",
-            "description": "Products Management"
+            "name": "Kontrahent",
+            "description": "Zarządzanie kontrahentami"
         },
         {
-            "name": "Deleted products",
-            "description": "Deleted products Management"
+            "name": "Usunięci kontrahenci",
+            "description": "Zarządzanie usuniętymi kontrahentami"
         },
         {
-            "name": "Account",
-            "description": "User authorization"
+            "name": "Produkt",
+            "description": "Zarządzanie produktami"
+        },
+        {
+            "name": "Usunięte produkty",
+            "description": "Zarządzanie usuniętymi produktami"
+        },
+        {
+            "name": "Konto",
+            "description": "Autoryzacja użytkowników"
         }
     ],
     "security": [

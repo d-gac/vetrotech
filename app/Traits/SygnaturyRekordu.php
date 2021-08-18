@@ -9,16 +9,16 @@ trait SygnaturyRekordu
         parent::boot();
 
         static::updating(function ($model) {
-            $model->updated_by = 44;
+            $model->updated_by = auth()->user()->id;
         });
 
         static::creating(function ($model) {
-            $model->updated_by = 43;
-            $model->created_by = 43;
+            $model->updated_by = auth()->user()->id;
+            $model->created_by = auth()->user()->id;
         });
 
         static::deleting(function ($model) {
-            $model->deleted_by = 45;
+            $model->deleted_by = auth()->user()->id;
             $model->save();
         });
     }

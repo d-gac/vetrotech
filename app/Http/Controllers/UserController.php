@@ -9,14 +9,70 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    //php artisan db:seed --class=UsersTableSeeder - admin account
     /**
      * @OA\Tag(
-     *     name="Account",
-     *     description="User authorization",
+     *     name="Konto",
+     *     description="Autoryzacja użytkowników",
      * )
      */
 
 
+    /**
+     * @OA\Post (
+     *     path="/api/register",
+     *     tags={"Konto"},
+     *     summary="Zarejestruj",
+     *
+     *
+     *     @OA\Response(
+     *     response=200,
+     *     description="Success",
+     *     @OA\JsonContent(
+     *     oneOf={
+     *      @OA\Schema(type="boolean")
+     *           }
+     *      ),
+     *     ),
+     *     @OA\Response(
+     *     response=404,
+     *     description="Error",
+     *     ),
+     *     @OA\Response(
+     *     response="default",
+     *     description="An ""unexpected"" error"
+     *      ),
+     *
+     *     @OA\RequestBody(
+     *
+     *        @OA\JsonContent(
+     *             type="object",
+     *                      @OA\Property(
+     *                         property="name",
+     *                         type="string",
+     *                         example="User123"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="john@doe.com"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="password",
+     *                         type="string",
+     *                         example="password123"
+     *                      ),
+     *                      @OA\Property(
+     *                         property="password_confirmation",
+     *                         type="string",
+     *                         example="password123"
+     *                      ),
+     *        )
+     *     ),
+     *
+     * )
+     */
     public function register(UserRequest $request)
     {
             $user = new User;
@@ -38,7 +94,7 @@ class UserController extends Controller
     /**
      * @OA\Post (
      *     path="/api/login",
-     *     tags={"Account"},
+     *     tags={"Konto"},
      *     summary="Zaloguj",
      *
      *
@@ -103,7 +159,7 @@ class UserController extends Controller
     /**
      * @OA\Post (
      *     path="/api/logout",
-     *     tags={"Account"},
+     *     tags={"Konto"},
      *     summary="Wyloguj",
      *
      *

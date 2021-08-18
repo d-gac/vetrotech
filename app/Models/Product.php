@@ -10,6 +10,12 @@ use App\Traits\SygnaturyRekordu;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes,SygnaturyRekordu;
+    use HasFactory, SoftDeletes, SygnaturyRekordu;
+
     public $guarded = [];
+
+    public function order()
+    {
+        return $this->hasMany(Zamowienie::class);
+    }
 }
