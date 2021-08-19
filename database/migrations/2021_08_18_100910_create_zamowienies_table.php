@@ -26,6 +26,9 @@ class CreateZamowieniesTable extends Migration
             $table->string('thickness');
             $table->integer('typeOfGlass_id');
             $table->integer('nameOfGlass_id');
+            $table->string('treatment');
+            $table->integer('quantity');
+            $table->integer('amount');
             $table->integer('numberDepartment_id');
             $table->string('comments')->nullable();
             $table->integer('created_by')->nullable();
@@ -44,11 +47,21 @@ class CreateZamowieniesTable extends Migration
                 ->on('kontrahents')
                 ->onDelete('cascade');
 
-            $table->foreign('dimensions_id')
-                ->references('code_id')
-                ->on('lexicons')
-                ->onDelete('cascade');
-
+//            $table->foreign('dimensions_id')
+//                ->references('code_id')
+//                ->on('lexicons');
+//
+//            $table->foreign('typeOfGlass_id')
+//                ->references('code_id')
+//                ->on('lexicons');
+//
+//            $table->foreign('nameOfGlass_id')
+//                ->references('code_id')
+//                ->on('lexicons');
+//
+//            $table->foreign('numberDepartment_id')
+//                ->references('code_id')
+//                ->on('lexicons');
         });
     }
 

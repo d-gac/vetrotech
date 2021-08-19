@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 
@@ -37,7 +38,11 @@ class ProductController extends Controller
      * )
      */
 
-    public function index()
+
+    /**
+     * @return Collection
+     */
+    public function index():Collection
     {
         return Product::all();
     }
@@ -72,17 +77,17 @@ class ProductController extends Controller
      * )
      */
 
-    public function show($id)
+
+    /**
+     * @param int $id
+     *
+     * @return Product
+     */
+    public function show(int $id):Product
     {
-        if (Product::find($id)) {
-            $var = Product::findOrFail($id)
+            return Product::findOrFail($id)
                 ->where('id', $id)
                 ->first();
-            return $var;
-        } else {
-            return "Produkt (ID: " . $id . ") nie istnieje";
-        }
-
     }
 
     /**
@@ -133,7 +138,13 @@ class ProductController extends Controller
      * )
      */
 
-    public function store(ProductRequest $request)
+
+    /**
+     * @param ProductRequest $request
+     *
+     * @return Product
+     */
+    public function store(ProductRequest $request):Product
     {
         $newItem = new Product;
         $newItem->name = $request->get("name");
@@ -199,15 +210,17 @@ class ProductController extends Controller
      * )
      */
 
-    public function update(ProductRequest $request, $id)
+    /**
+     * @param ProductRequest $request
+     * @param int $id
+     *
+     * @return Product
+     */
+    public function update(ProductRequest $request, int $id):Product
     {
         $newItem = Product::find($id);
-        if (!$newItem) {
-            return "Produkt (ID: " . $id . ") nie istnieje";
-        } else {
-            $newItem->update($request->all());
-            return $newItem;
-        }
+        $newItem->update($request->all());
+        return $newItem;
     }
 
     /**
@@ -240,7 +253,13 @@ class ProductController extends Controller
      * )
      */
 
-    public function destroy($id)
+
+    /**
+     * @param int $id
+     *
+     * @return Product
+     */
+    public function destroy(int $id):String
     {
         if (Product::find($id)) {
             Product::destroy($id);
@@ -279,7 +298,11 @@ class ProductController extends Controller
      * )
      */
 
-    public function allProduct()
+
+    /**
+     * @return Collection
+     */
+    public function allProduct():Collection
     {
         return Product::withTrashed()->get();
     }
@@ -306,7 +329,11 @@ class ProductController extends Controller
      * )
      */
 
-    public function deleted()
+
+    /**
+     * @return Collection
+     */
+    public function deleted():Collection
     {
         return Product::onlyTrashed()->get();
     }
@@ -341,7 +368,13 @@ class ProductController extends Controller
      * )
      */
 
-    public function renew($id)
+
+    /**
+     * @param int $id
+     *
+     * @return String
+     */
+    public function renew(int $id):String
     {
         $item = Product::onlyTrashed()
             ->where('id', $id)

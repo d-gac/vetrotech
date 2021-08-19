@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\KontrahentRequest;
 use App\Models\Kontrahent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class KontrahentController extends Controller
@@ -36,7 +37,11 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function index()
+
+    /**
+     * @return Collection
+     */
+    public function index():Collection
     {
         return Kontrahent::all();
     }
@@ -71,17 +76,17 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function show($id)
+
+    /**
+     * @param int $id
+     *
+     * @return Kontrahent
+     */
+    public function show(int $id):Kontrahent
     {
-        if (Kontrahent::find($id)) {
-            $var = Kontrahent::findOrFail($id)
+            return Kontrahent::findOrFail($id)
                 ->where('id', $id)
                 ->first();
-            return $var;
-        } else {
-            return "Kontrahent (ID: " . $id . ") nie istnieje";
-        }
-
     }
 
     /**
@@ -177,7 +182,13 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function store(KontrahentRequest $request)
+
+    /**
+     * @param KontrahentRequest $request
+     *
+     * @return Kontrahent
+     */
+    public function store(KontrahentRequest $request):Kontrahent
     {
         $newItem = new Kontrahent;
         $newItem->type = $request->get("type");
@@ -297,15 +308,18 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function update(KontrahentRequest $request, $id)
+
+    /**
+     * @param KontrahentRequest $request
+     * @param int $id
+     *
+     * @return Kontrahent
+     */
+    public function update(KontrahentRequest $request,int $id):Kontrahent
     {
         $newItem = Kontrahent::find($id);
-        if (!$newItem) {
-            return "Kontrahent (ID: " . $id . ") nie istnieje";
-        } else {
-            $newItem->update($request->all());
-            return $newItem;
-        }
+        $newItem->update($request->all());
+        return $newItem;
     }
 
     /**
@@ -338,7 +352,13 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function destroy($id)
+
+    /**
+     * @param int $id
+     *
+     * @return Kontrahent
+     */
+    public function destroy(int $id):String
     {
         if (Kontrahent::find($id)) {
             Kontrahent::destroy($id);
@@ -376,7 +396,11 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function allContractor()
+
+    /**
+     * @return Collection
+     */
+    public function allContractor():Collection
     {
         return Kontrahent::withTrashed()->get();
     }
@@ -402,7 +426,11 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function deleted()
+
+    /**
+     * @return Collection
+     */
+    public function deleted():Collection
     {
         return Kontrahent::onlyTrashed()->get();
     }
@@ -437,7 +465,13 @@ class KontrahentController extends Controller
      * )
      */
 
-    public function renew($id)
+
+    /**
+     * @param int $id
+     *
+     * @return String
+     */
+    public function renew(int $id):String
     {
         $item = Kontrahent::onlyTrashed()
             ->where('id', $id)

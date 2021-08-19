@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KontrahentController;
 use App\Http\Controllers\LexiconController;
+use App\Http\Controllers\ZamowienieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,15 +42,15 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('/kontrahent', KontrahentController::class);
 
 
+    //Zamówienie
+    Route::get('zamowienie/allOrder', [ZamowienieController::class, 'allOrder']);
+    Route::get('zamowienie/deleted', [ZamowienieController::class, 'deleted']);
+    Route::get('zamowienie/renew/{id}', [ZamowienieController::class, 'renew']);
+    Route::apiResource('/zamowienie', ZamowienieController::class);
+
+
     //Słownik
-    Route::get('/lexicon/allDimensions', [LexiconController::class, 'allDimensions']);
-    Route::get('/lexicon/allTypeOfGlass', [LexiconController::class, 'allTypeOfGlass']);
-    Route::get('/lexicon/allNameOfGlass', [LexiconController::class, 'allNameOfGlass']);
-    Route::get('/lexicon/allNumberDepartment', [LexiconController::class, 'allNumberDepartment']);
-    Route::get('/lexicon/allDimensions/{id}', [LexiconController::class, 'oneDimensions']);
-    Route::get('/lexicon/allTypeOfGlass/{id}', [LexiconController::class, 'oneTypeOfGlass']);
-    Route::get('/lexicon/allNameOfGlass/{id}', [LexiconController::class, 'oneNameOfGlass']);
-    Route::get('/lexicon/allNumberDepartment/{id}', [LexiconController::class, 'oneNumberDepartment']);
+    Route::get('/lexicon/{type}/{id?}', [LexiconController::class, 'lexicon']);
 
 
     //Wylogowanie

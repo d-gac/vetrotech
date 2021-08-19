@@ -14,7 +14,6 @@
                     "Kontrahent"
                 ],
                 "summary": "Wyświetl listę kontrahentów",
-                "operationId": "74c89d3ee8f8186fc2d2a94ccfb6b3f3",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -32,7 +31,6 @@
                     "Kontrahent"
                 ],
                 "summary": "Dodaj kontrahenta",
-                "operationId": "abe0411efd6c6ba1d00c169fb8801a38",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -122,7 +120,6 @@
                     "Kontrahent"
                 ],
                 "summary": "Wyświetl kontrahenta",
-                "operationId": "a0ff949e97d4a259a5a0ff9e53143c2a",
                 "parameters": [
                     {
                         "name": "id",
@@ -150,7 +147,6 @@
                     "Kontrahent"
                 ],
                 "summary": "Edytuj kontrahenta",
-                "operationId": "cd6258a7009fc0784995191b54e37c5a",
                 "parameters": [
                     {
                         "name": "id",
@@ -248,7 +244,6 @@
                     "Kontrahent"
                 ],
                 "summary": "Usuń kontrahenta",
-                "operationId": "3d2614b8b05c56534323520a08115049",
                 "parameters": [
                     {
                         "name": "id",
@@ -278,7 +273,6 @@
                     "Usunięci kontrahenci"
                 ],
                 "summary": "Lista wszystkich utworzonych kontrahentów",
-                "operationId": "470adf5f843809cf3554a516eafa6a3a",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -298,7 +292,6 @@
                     "Usunięci kontrahenci"
                 ],
                 "summary": "Lista usuniętych kontrahentów",
-                "operationId": "f31df96e58d5d8ae5e7f14341c95d782",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -318,8 +311,44 @@
                     "Usunięci kontrahenci"
                 ],
                 "summary": "Przywróć kontrahenta",
-                "operationId": "5845e3ec4782a31d371f6098f64bcb5e",
                 "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/lexicon/{type}/{id}": {
+            "get": {
+                "tags": [
+                    "Słownik"
+                ],
+                "summary": "Przywróć produkt",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -348,7 +377,6 @@
                     "Produkt"
                 ],
                 "summary": "Wyświetl listę produktów",
-                "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -366,7 +394,6 @@
                     "Produkt"
                 ],
                 "summary": "Dodaj produkt",
-                "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -420,7 +447,6 @@
                     "Produkt"
                 ],
                 "summary": "Wyświetl produkt",
-                "operationId": "2768d88590e39a7ded1d0032e64dded7",
                 "parameters": [
                     {
                         "name": "id",
@@ -448,7 +474,6 @@
                     "Produkt"
                 ],
                 "summary": "Edytuj produkt",
-                "operationId": "d3467c795490afbb49680821c9bd6b0d",
                 "parameters": [
                     {
                         "name": "id",
@@ -510,7 +535,6 @@
                     "Produkt"
                 ],
                 "summary": "Usuń produkt",
-                "operationId": "c830155516bad1f72b0081160edeb2ac",
                 "parameters": [
                     {
                         "name": "id",
@@ -540,7 +564,6 @@
                     "Usunięte produkty"
                 ],
                 "summary": "Lista wszystkich utworzonych produktów",
-                "operationId": "e6a13445c2186b8f04dbc72638ffd6aa",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -560,7 +583,6 @@
                     "Usunięte produkty"
                 ],
                 "summary": "Lista usuniętych produktów",
-                "operationId": "9b9b852bcafd209adefce07ecef1e42e",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -580,7 +602,6 @@
                     "Usunięte produkty"
                 ],
                 "summary": "Przywróć produkt",
-                "operationId": "b5de1fcce74f07405ed1b6709af9aa7a",
                 "parameters": [
                     {
                         "name": "id",
@@ -610,7 +631,6 @@
                     "Konto"
                 ],
                 "summary": "Zarejestruj",
-                "operationId": "2f25885f3b6f61ca11724ec302d2e439",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -668,7 +688,6 @@
                     "Konto"
                 ],
                 "summary": "Zaloguj",
-                "operationId": "0fc9610184083ac6dddab2c63139225a",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -718,7 +737,6 @@
                     "Konto"
                 ],
                 "summary": "Wyloguj",
-                "operationId": "67d5147477c548bfbc3f982833bbc7bd",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -742,6 +760,364 @@
                     }
                 }
             }
+        },
+        "/api/zamowienie": {
+            "get": {
+                "tags": [
+                    "Zamówienie"
+                ],
+                "summary": "Wyświetl listę zamówień",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Zamówienie"
+                ],
+                "summary": "Dodaj zamówienie",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "orderNumber": {
+                                        "type": "string",
+                                        "example": "ABC12345"
+                                    },
+                                    "admissionDate": {
+                                        "type": "string",
+                                        "example": "2021-01-05"
+                                    },
+                                    "receiptDate": {
+                                        "type": "string",
+                                        "example": "2021-01-06"
+                                    },
+                                    "product_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "contractor_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "dimensions_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "width": {
+                                        "type": "integer",
+                                        "example": "35"
+                                    },
+                                    "height": {
+                                        "type": "integer",
+                                        "example": "15"
+                                    },
+                                    "thickness": {
+                                        "type": "integer",
+                                        "example": "8"
+                                    },
+                                    "typeOfGlass_id": {
+                                        "type": "integer",
+                                        "example": "2"
+                                    },
+                                    "nameOfGlass_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "treatment": {
+                                        "type": "string",
+                                        "example": "Obróbka termiczna"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": "10"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": "200"
+                                    },
+                                    "numberDepartment_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "comments": {
+                                        "type": "string",
+                                        "example": "Uwag brak! Uwag brak! Uwag brak! Uwag brak!"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/zamowienie/{id}": {
+            "get": {
+                "tags": [
+                    "Zamówienie"
+                ],
+                "summary": "Wyświetl zamówienie",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "An \"unexpected\" error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Zamówienie"
+                ],
+                "summary": "Edytuj zamówienie",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "orderNumber": {
+                                        "type": "string",
+                                        "example": "ABC12345_EDITED"
+                                    },
+                                    "admissionDate": {
+                                        "type": "string",
+                                        "example": "2021-01-05"
+                                    },
+                                    "receiptDate": {
+                                        "type": "string",
+                                        "example": "2021-01-06"
+                                    },
+                                    "product_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "contractor_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "dimensions_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "width": {
+                                        "type": "integer",
+                                        "example": "35"
+                                    },
+                                    "height": {
+                                        "type": "integer",
+                                        "example": "15"
+                                    },
+                                    "thickness": {
+                                        "type": "integer",
+                                        "example": "8"
+                                    },
+                                    "typeOfGlass_id": {
+                                        "type": "integer",
+                                        "example": "2"
+                                    },
+                                    "nameOfGlass_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "treatment": {
+                                        "type": "string",
+                                        "example": "Obróbka termiczna"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": "10"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": "200"
+                                    },
+                                    "numberDepartment_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "comments": {
+                                        "type": "string",
+                                        "example": "Uwag brak! Uwag brak! Uwag brak! Uwag brak!"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "type": "boolean"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Zamówienie"
+                ],
+                "summary": "Usuń zamówienie",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/zamowienie/allProduct": {
+            "get": {
+                "tags": [
+                    "Usunięte zamówienia"
+                ],
+                "summary": "Lista wszystkich utworzonych zamówień",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/zamowienie/deleted": {
+            "get": {
+                "tags": [
+                    "Usunięte zamówienia"
+                ],
+                "summary": "Lista usuniętych zamówień",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/api/zamowienie/renew/{id}": {
+            "get": {
+                "tags": [
+                    "Usunięte zamówienia"
+                ],
+                "summary": "Przywróć zamówienie",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Error"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -754,6 +1130,10 @@
             "description": "Zarządzanie usuniętymi kontrahentami"
         },
         {
+            "name": "Słownik",
+            "description": "Zarządzanie słownikiem"
+        },
+        {
             "name": "Produkt",
             "description": "Zarządzanie produktami"
         },
@@ -764,6 +1144,14 @@
         {
             "name": "Konto",
             "description": "Autoryzacja użytkowników"
+        },
+        {
+            "name": "Zamówienie",
+            "description": "Zarządzanie zamówieniami"
+        },
+        {
+            "name": "Usunięte zamówienia",
+            "description": "Zarządzanie usuniętymi zamówieniami"
         }
     ],
     "security": [

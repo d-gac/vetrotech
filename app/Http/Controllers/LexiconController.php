@@ -3,69 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lexicon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class LexiconController extends Controller
 {
-    public function allDimensions()
-    {
-        return Lexicon::where('type', 'dimensions')
-            ->where('status', 1)
-            ->get();
-    }
+    // php artisan db:seed --class=LexiconSeeder -- all codes
+    /**
+     * @OA\Tag(
+     *     name="Słownik",
+     *     description="Zarządzanie słownikiem",
+     * )
+     */
 
-    public function allTypeOfGlass()
-    {
-        return Lexicon::where('type', 'typeOfGlass')
-            ->where('status', 1)
-            ->get();
-    }
+    /**
+     * @OA\Get(
+     *     path="/api/lexicon/{type}/{id}",
+     *     tags={"Słownik"},
+     *     summary="Przywróć produkt",
+     *
+     *     @OA\Response(
+     *     response=200,
+     *     description="Success",
+     *     ),
+     *     @OA\Response(
+     *     response=404,
+     *     description="Error",
+     *     ),
+     *     @OA\Response(
+     *     response="default",
+     *     description="an ""unexpected"" error"
+     *      ),
+     *
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="type",
+     *         required=true,
+     *         @OA\Schema(
+     *           type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(
+     *           type="integer"
+     *         )
+     *     ),
+     * )
+     */
 
-    public function allNameOfGlass()
+    /**
+     * @param string $type
+     * @param int|null $id
+     *
+     * @return Collection
+     */
+    public function lexicon(string $type, int $id = null): Collection
     {
-        return Lexicon::where('type', 'nameOfGlass')
-            ->where('status', 1)
-            ->get();
-    }
+        if ($id) {
 
-    public function allNumberDepartment()
-    {
-        return Lexicon::where('type', 'numberDepartment')
-            ->where('status', 1)
-            ->get();
-    }
+            return Lexicon::where('type', $type)
+                ->where('code_id', $id)
+                ->where('status', 1)
+                ->get();
 
-    public function oneDimensions($id)
-    {
-        return Lexicon::where('type', 'dimensions')
-            ->where('status', 1)
-            ->where('code_id', $id)
-            ->get();
+        } else {
 
-    }
-
-    public function oneTypeOfGlass($id)
-    {
-        return Lexicon::where('type', 'typeOfGlass')
-            ->where('code_id', $id)
-            ->where('status', 1)
-            ->get();
-    }
-
-    public function oneNameOfGlass($id)
-    {
-        return Lexicon::where('type', 'nameOfGlass')
-            ->where('code_id', $id)
-            ->where('status', 1)
-            ->get();
-    }
-
-    public function oneNumberDepartment($id)
-    {
-        return Lexicon::where('type', 'numberDepartment')
-            ->where('code_id', $id)
-            ->where('status', 1)
-            ->get();
+            return Lexicon::where('type', $type)
+                ->where('status', 1)
+                ->get();
+        }
     }
 
 }

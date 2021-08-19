@@ -90,13 +90,13 @@ class LexiconSeeder extends Seeder
         DB::table('lexicons')->insert([
             'name' => 'Dział Nr 1',
             'type' => 'numberDepartment',
-            'code_id' => 1,
+            'code_id' => 0,
             'status' => 1
         ]);
         DB::table('lexicons')->insert([
             'name' => 'Dział Nr 2',
             'type' => 'numberDepartment',
-            'code_id' => 2,
+            'code_id' => 1,
             'status' => 1
         ]);
     }

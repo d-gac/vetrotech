@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -73,7 +74,13 @@ class UserController extends Controller
      *
      * )
      */
-    public function register(UserRequest $request)
+
+    /**
+     * @param UserRequest $request
+     *
+     * @return Response
+     */
+    public function register(UserRequest $request):Response
     {
             $user = new User;
             $user->name = $request['name'];
@@ -135,7 +142,14 @@ class UserController extends Controller
      *
      * )
      */
-    function login(Request $request)
+
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    function login(Request $request):Response
     {
         $user= User::where('email', $request->email)->first();
 
@@ -182,11 +196,16 @@ class UserController extends Controller
      *      ),
      * )
      */
-    public function logout(Request $request) {
+
+
+    /**
+     * @return String
+     */
+    public function logout():String
+    {
         auth()->user()->tokens()->delete();
 
-        return [
-            'message' => 'Wylogowano pomyślnie'
-        ];
+        return 'Wylogowano pomyślnie';
+
     }
 }
