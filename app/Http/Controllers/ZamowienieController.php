@@ -4,11 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ZamowienieRequest;
 use App\Models\Zamowienie;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class ZamowienieController extends Controller
 {
+
+
+    public function orderNumberGenerator()
+    {
+
+//        static $count = 0;
+//        $count++;
+//        return $count;
+
+        $dt = Carbon::parse();
+        $month = $dt->month;
+        $year = $dt->year;
+        return "/".$month."/".$year;
+    }
+
     /**
      * @OA\Tag(
      *     name="Zamówienie",

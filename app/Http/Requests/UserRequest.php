@@ -18,12 +18,12 @@ class UserRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'name' => 'required|string|min:5',
+            'name' => 'required|string|min:3',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
         ],
         self::METHOD_PUT => [
-            'name' => 'required|string|min:5',
+            'name' => 'required|string|min:3',
             'email' => 'required|email',
             'password' => 'required|confirmed',
         ],
