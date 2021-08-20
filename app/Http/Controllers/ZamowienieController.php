@@ -367,12 +367,12 @@ class ZamowienieController extends Controller
      */
 
     /**
-     * @param Request $request
+     * @param ZamowienieRequest $request
      * @param int $id
      *
      * @return Zamowienie
      */
-    public function update(Request $request, int $id):Zamowienie
+    public function update(ZamowienieRequest $request, int $id):Zamowienie
     {
         $newItem = Zamowienie::find($id);
         $newItem->update($request->all());
