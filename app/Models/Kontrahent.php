@@ -18,4 +18,10 @@ class Kontrahent extends Model
     {
         return $this->hasMany(Zamowienie::class);
     }
+
+    public function typeOfContractor()
+    {
+        return $this->belongsTo(Lexicon::class, 'type_id', 'code_id')
+            ->where('type', 'contractorType');
+    }
 }

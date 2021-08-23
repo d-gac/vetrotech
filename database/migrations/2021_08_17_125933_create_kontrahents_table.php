@@ -15,8 +15,8 @@ class CreateKontrahentsTable extends Migration
     {
         Schema::create('kontrahents', function (Blueprint $table) {
             $table->id();
-            $table->boolean('type');
-            $table->string('companyName');
+            $table->integer('type_id');
+            $table->string('companyName')->nullable();
             $table->string('lname');
             $table->string('fname');
             $table->string('location')->nullable();

@@ -18,7 +18,7 @@ class ZamowienieRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'orderNumber' => 'required|string|min:3',
+            'orderNumber' => 'string|min:3',
             'admissionDate' => 'required|date',
             'receiptDate' => 'required|date',
             'product_id' => 'required|integer|exists:products,id',
@@ -36,7 +36,7 @@ class ZamowienieRequest extends FormRequest
             'comments' => 'string|min:5',
         ],
         self::METHOD_PUT => [
-            'orderNumber' => 'required|string|min:3',
+            'orderNumber' => 'string|min:3',
             'admissionDate' => 'required|date',
             'receiptDate' => 'required|date',
             'product_id' => 'required|integer|exists:products,id',
@@ -81,7 +81,6 @@ class ZamowienieRequest extends FormRequest
     public function messages()
     {
         return [
-            'orderNumber.required' => 'Pole Numer zamówienia jest wymagane',
             'orderNumber.string' => 'Pole Numer zamówienia musi zawierać tekst',
             'orderNumber.min' => 'Pole Numer zamówienia musi składać się z conajmniej 3 znaków',
 

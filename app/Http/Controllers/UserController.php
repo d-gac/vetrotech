@@ -135,7 +135,7 @@ class UserController extends Controller
      *                      @OA\Property(
      *                         property="password",
      *                         type="string",
-     *                         example="password"
+     *                         example="password123"
      *                      ),
      *        )
      *     ),
@@ -175,6 +175,7 @@ class UserController extends Controller
      *     path="/api/logout",
      *     tags={"Konto"},
      *     summary="Wyloguj",
+     *     security={{"bearerAuth":{}}},
      *
      *
      *     @OA\Response(

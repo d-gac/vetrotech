@@ -14,6 +14,14 @@ use Illuminate\Routing\Controller as BaseController;
  *   contact={
  *     "email": "P1@zetorzeszow.pl"
  *   }),
+ *  @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      in="header",
+ *      name="Authorization",
+ *      type="http",
+ *      scheme="Bearer",
+ *      bearerFormat="JWT",
+ * ),
  */
 
 

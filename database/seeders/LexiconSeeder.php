@@ -99,5 +99,17 @@ class LexiconSeeder extends Seeder
             'code_id' => 1,
             'status' => 1
         ]);
+        DB::table('lexicons')->insert([
+            'name' => 'Osoba fizyczna',
+            'type' => 'contractorType',
+            'code_id' => 0,
+            'status' => 1
+        ]);
+        DB::table('lexicons')->insert([
+            'name' => 'Osoba prawna',
+            'type' => 'contractorType',
+            'code_id' => 1,
+            'status' => 1
+        ]);
     }
 }

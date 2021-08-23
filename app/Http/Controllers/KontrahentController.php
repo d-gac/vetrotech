@@ -21,6 +21,8 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent",
      *     tags={"Kontrahent"},
      *     summary="Wyświetl listę kontrahentów",
+     *     security={{"bearerAuth":{}}},
+     *
      *     @OA\Response(
      *     response=200,
      *     description="Success",
@@ -43,7 +45,7 @@ class KontrahentController extends Controller
      */
     public function index():Collection
     {
-        return Kontrahent::all();
+        return Kontrahent::with('typeOfContractor')->get();
     }
 
     /**
@@ -51,6 +53,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/{id}",
      *     tags={"Kontrahent"},
      *     summary="Wyświetl kontrahenta",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -85,6 +88,7 @@ class KontrahentController extends Controller
     public function show(int $id):Kontrahent
     {
             return Kontrahent::findOrFail($id)
+                ->with('typeOfContractor')
                 ->where('id', $id)
                 ->first();
     }
@@ -94,6 +98,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent",
      *     tags={"Kontrahent"},
      *     summary="Dodaj kontrahenta",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -191,7 +196,7 @@ class KontrahentController extends Controller
     public function store(KontrahentRequest $request):Kontrahent
     {
         $newItem = new Kontrahent;
-        $newItem->type = $request->get("type");
+        $newItem->type_id = $request->get("type_id");
         $newItem->companyName = $request->get("companyName");
         $newItem->lname = $request->get("lname");
         $newItem->fname = $request->get("fname");
@@ -213,6 +218,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/{id}",
      *     tags={"Kontrahent"},
      *     summary="Edytuj kontrahenta",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -327,6 +333,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/{id}",
      *     tags={"Kontrahent"},
      *     summary="Usuń kontrahenta",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -380,6 +387,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/allContractor",
      *     tags={"Usunięci kontrahenci"},
      *     summary="Lista wszystkich utworzonych kontrahentów",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -410,6 +418,7 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/deleted",
      *     tags={"Usunięci kontrahenci"},
      *     summary="Lista usuniętych kontrahentów",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -440,6 +449,8 @@ class KontrahentController extends Controller
      *     path="/api/kontrahent/renew/{id}",
      *     tags={"Usunięci kontrahenci"},
      *     summary="Przywróć kontrahenta",
+     *     security={{"bearerAuth":{}}},
+     *
      *
      *     @OA\Response(
      *     response=200,

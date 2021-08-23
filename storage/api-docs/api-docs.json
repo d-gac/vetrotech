@@ -24,7 +24,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -111,7 +116,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/kontrahent/{id}": {
@@ -140,7 +150,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -237,7 +252,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -264,7 +284,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/kontrahent/allContractor": {
@@ -283,7 +308,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/kontrahent/deleted": {
@@ -302,7 +332,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/kontrahent/renew/{id}": {
@@ -331,7 +366,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/lexicon/{type}/{id}": {
@@ -368,7 +408,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/product": {
@@ -387,7 +432,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -438,7 +488,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/product/{id}": {
@@ -467,7 +522,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -528,7 +588,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -555,7 +620,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/product/allProduct": {
@@ -574,7 +644,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/product/deleted": {
@@ -593,7 +668,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/product/renew/{id}": {
@@ -622,7 +702,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/register": {
@@ -699,7 +784,7 @@
                                     },
                                     "password": {
                                         "type": "string",
-                                        "example": "password"
+                                        "example": "password123"
                                     }
                                 },
                                 "type": "object"
@@ -758,7 +843,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/zamowienie": {
@@ -777,7 +867,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -880,7 +975,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/zamowienie/{id}": {
@@ -909,7 +1009,12 @@
                     "default": {
                         "description": "An \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -1022,7 +1127,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1049,7 +1159,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/zamowienie/allProduct": {
@@ -1068,7 +1183,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/zamowienie/deleted": {
@@ -1087,7 +1207,12 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/zamowienie/renew/{id}": {
@@ -1116,7 +1241,23 @@
                     "default": {
                         "description": "an \"unexpected\" error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
             }
         }
     },

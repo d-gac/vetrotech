@@ -22,6 +22,7 @@ class ProductController extends Controller
      *     path="/api/product",
      *     tags={"Produkt"},
      *     summary="Wyświetl listę produktów",
+     *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *     response=200,
      *     description="Success",
@@ -52,6 +53,8 @@ class ProductController extends Controller
      *     path="/api/product/{id}",
      *     tags={"Produkt"},
      *     summary="Wyświetl produkt",
+     *     security={{"bearerAuth":{}}},
+
      *
      *     @OA\Response(
      *     response=200,
@@ -95,6 +98,7 @@ class ProductController extends Controller
      *     path="/api/product",
      *     tags={"Produkt"},
      *     summary="Dodaj produkt",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -160,6 +164,7 @@ class ProductController extends Controller
      *     path="/api/product/{id}",
      *     tags={"Produkt"},
      *     summary="Edytuj produkt",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -228,6 +233,7 @@ class ProductController extends Controller
      *     path="/api/product/{id}",
      *     tags={"Produkt"},
      *     summary="Usuń produkt",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -282,6 +288,7 @@ class ProductController extends Controller
      *     path="/api/product/allProduct",
      *     tags={"Usunięte produkty"},
      *     summary="Lista wszystkich utworzonych produktów",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -313,6 +320,7 @@ class ProductController extends Controller
      *     path="/api/product/deleted",
      *     tags={"Usunięte produkty"},
      *     summary="Lista usuniętych produktów",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -343,6 +351,7 @@ class ProductController extends Controller
      *     path="/api/product/renew/{id}",
      *     tags={"Usunięte produkty"},
      *     summary="Przywróć produkt",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,

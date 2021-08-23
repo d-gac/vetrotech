@@ -15,6 +15,9 @@ class CreateZamowieniesTable extends Migration
     {
         Schema::create('zamowienies', function (Blueprint $table) {
             $table->id();
+            $table->integer('number');
+            $table->integer('month');
+            $table->integer('year');
             $table->string('orderNumber');
             $table->date('admissionDate');
             $table->date('receiptDate');

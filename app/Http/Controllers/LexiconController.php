@@ -21,6 +21,7 @@ class LexiconController extends Controller
      *     path="/api/lexicon/{type}/{id}",
      *     tags={"Słownik"},
      *     summary="Przywróć produkt",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,

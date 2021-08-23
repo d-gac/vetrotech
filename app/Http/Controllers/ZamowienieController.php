@@ -15,14 +15,6 @@ class ZamowienieController extends Controller
     public function orderNumberGenerator()
     {
 
-//        static $count = 0;
-//        $count++;
-//        return $count;
-
-        $dt = Carbon::parse();
-        $month = $dt->month;
-        $year = $dt->year;
-        return "/".$month."/".$year;
     }
 
     /**
@@ -37,6 +29,8 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie",
      *     tags={"Zamówienie"},
      *     summary="Wyświetl listę zamówień",
+     *     security={{"bearerAuth":{}}},
+     *
      *     @OA\Response(
      *     response=200,
      *     description="Success",
@@ -73,6 +67,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie",
      *     tags={"Zamówienie"},
      *     summary="Dodaj zamówienie",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -190,7 +185,37 @@ class ZamowienieController extends Controller
     public function store(ZamowienieRequest $request):Zamowienie
     {
         $newItem = new Zamowienie;
-        $newItem->orderNumber = $request->get("orderNumber");
+
+        $dt = Carbon::parse();
+        $actualMonth = $dt->month; //symulacja miesiecy
+        $actualYear = $dt->year; //symulacja lat
+        $lastUsedMonth =  Zamowienie::latest('month')->pluck('month')->first();
+        $lastUsedYear =  Zamowienie::latest('year')->pluck('year')->first();
+
+        if ($actualMonth == $lastUsedMonth || $actualYear == $lastUsedYear){ //jeśli miesiac i rok z ostatniego rekordu w bazie sa równe obecnemu miesiacowi i rokowi to tworzy nowy numer umowy z tym samym miesiacem i rokiem
+
+            $maxNumber = Zamowienie::where('month', $actualMonth)
+                ->where('year', $actualYear)
+                ->max('number');
+
+            if ($maxNumber){
+                $number = $maxNumber;
+            }else{
+                $number = 0;
+            }
+
+            $newItem->number = ++$number; // zwiększenie numeru o jeden
+
+        } else
+        {
+            $number = 0;
+            $newItem->number = ++$number; // zwiększenie numeru o jeden
+
+        }
+
+        $newItem->month = $actualMonth; //aktualny miesiac
+        $newItem->year = $actualYear; //aktualny rok
+        $newItem->orderNumber = $number."/".$actualMonth."/".$actualYear; //pełna nazwa
         $newItem->admissionDate = $request->get("admissionDate");
         $newItem->receiptDate = $request->get("receiptDate");
         $newItem->product_id = $request->get("product_id");
@@ -217,6 +242,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/{id}",
      *     tags={"Zamówienie"},
      *     summary="Wyświetl zamówienie",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -267,6 +293,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/{id}",
      *     tags={"Zamówienie"},
      *     summary="Edytuj zamówienie",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -401,6 +428,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/{id}",
      *     tags={"Zamówienie"},
      *     summary="Usuń zamówienie",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -453,6 +481,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/allProduct",
      *     tags={"Usunięte zamówienia"},
      *     summary="Lista wszystkich utworzonych zamówień",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -484,6 +513,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/deleted",
      *     tags={"Usunięte zamówienia"},
      *     summary="Lista usuniętych zamówień",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
@@ -515,6 +545,7 @@ class ZamowienieController extends Controller
      *     path="/api/zamowienie/renew/{id}",
      *     tags={"Usunięte zamówienia"},
      *     summary="Przywróć zamówienie",
+     *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(
      *     response=200,
