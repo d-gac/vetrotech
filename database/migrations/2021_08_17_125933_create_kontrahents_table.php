@@ -19,10 +19,10 @@ class CreateKontrahentsTable extends Migration
             $table->string('companyName')->nullable();
             $table->string('lname');
             $table->string('fname');
-            $table->string('location')->nullable();
-            $table->integer('postalCode')->nullable();
+            $table->string('location');
+            $table->integer('postalCode');
             $table->string('street')->nullable();
-            $table->string('numberHouse')->nullable();
+            $table->string('numberHouse');
             $table->string('numberApartment')->nullable();
             $table->integer('numberPhone');
             $table->string('email');

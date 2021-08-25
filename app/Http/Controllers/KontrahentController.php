@@ -369,7 +369,7 @@ class KontrahentController extends Controller
     {
         if (Kontrahent::find($id)) {
             Kontrahent::destroy($id);
-            return "Pomyślnie usunięto produkt (ID: " . $id . ")";
+            return "Pomyślnie usunięto kontrahenta (ID: " . $id . ")";
         } else {
             return "Kontrahent (ID: " . $id . ") nie istnieje";
         }

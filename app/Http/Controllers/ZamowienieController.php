@@ -446,9 +446,9 @@ class ZamowienieController extends Controller
     {
         if (Zamowienie::find($id)) {
             Zamowienie::destroy($id);
-            return "Pomyślnie usunięto produkt (ID: " . $id . ")";
+            return "Pomyślnie usunięto zamówienie (ID: " . $id . ")";
         } else {
-            return "Produkt (ID: " . $id . ") nie istnieje";
+            return "Zamówienie (ID: " . $id . ") nie istnieje";
         }
     }
 
@@ -567,9 +567,9 @@ class ZamowienieController extends Controller
             ->first();
         if ($item) {
             Zamowienie::where('id', $id)->restore();
-            return "Produkt (ID: " . $id . ") został przywrócony";
+            return "Zamówienie (ID: " . $id . ") został przywrócony";
         } else {
-            return "Produkt (ID: " . $id . ") nie został wcześniej usunięty lub nie istnieje";
+            return "Zamówienie (ID: " . $id . ") nie został wcześniej usunięty lub nie istnieje";
         }
     }
 }

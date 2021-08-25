@@ -18,13 +18,13 @@ class ProductRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'name' => 'required|string|min:3',
-            'description' => 'required|string|min:10',
+            'name' => 'required|string|min:3|max:255',
+            'description' => 'string|min:10|max:65535',
             'status' => 'required|boolean',
         ],
         self::METHOD_PUT => [
-            'name' => 'required|string|min:3',
-            'description' => 'required|string|min:10',
+            'name' => 'required|string|min:3|max:255',
+            'description' => 'string|min:10|max:65535',
             'status' => 'required|boolean',
         ],
         self::METHOD_DELETE => [
@@ -57,9 +57,10 @@ class ProductRequest extends FormRequest
             'name.required' => 'Pole Nazwa jest wymagane',
             'name.string' => 'Pole Nazwa musi zawierać tekst',
             'name.min' => 'Pole Nazwa musi składać się z conajmniej 3 znaków',
-            'description.required' => 'Pole Opis jest wymagane',
+            'name.max' => 'Pole Nazwa może maksymalnie zawierać 255 znaków',
             'description.string' => 'Pole Opis musi zawierać tekst',
             'description.min' => 'Pole Opis musi składać się z conajmniej 10 znaków',
+            'description.max' => 'Pole Opis może maksymalnie zawierać 65535 znaków',
             'status.required' => 'Pole Status jest wymagane',
             'status.boolean' => 'Pole Status musi zawierać "0"/"1" lub 0/1',
         ];

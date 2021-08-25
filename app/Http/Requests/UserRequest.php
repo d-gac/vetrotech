@@ -18,13 +18,13 @@ class UserRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'name' => 'required|string|min:3',
-            'email' => 'required|email|unique:users,email',
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
             'password' => ['required', 'min:6', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#@%]).*$/', 'confirmed'],
         ],
         self::METHOD_PUT => [
-            'name' => 'required|string|min:3',
-            'email' => 'required|email',
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|email|max:255',
             'password' => 'required|confirmed',
         ],
         self::METHOD_DELETE => [
@@ -58,8 +58,10 @@ class UserRequest extends FormRequest
             'name.required' => 'Pole nazwa jest wymagane',
             'name.string' => 'Pole nazwa musi zawierać tekst',
             'name.min' => 'Pole nazwa musi składać się z conajmniej 3 znaków',
+            'name.max' => 'Pole nazwa może maksymalnie zawierać 255 znaków',
             'email.required' => 'Pole Email jest wymagane',
             'email.email' => 'Pole Email musi być podobne do example@com.pl',
+            'email.max' => 'Ten Email może maksymalnie zawierać 255 znaków',
             'email.unique' => 'Ten Email już jest zajęty',
             'password.required' => 'Pole Hasło jest wymagane',
             'password.confirmed' => 'Hasła się nie zgadzają',
