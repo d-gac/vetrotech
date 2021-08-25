@@ -5,7 +5,7 @@
         "contact": {
             "email": "P1@zetorzeszow.pl"
         },
-        "version": "1.0"
+        "version": "1.1"
     },
     "paths": {
         "/api/kontrahent": {
@@ -41,8 +41,8 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "type": {
-                                        "type": "boolean",
+                                    "type_id": {
+                                        "type": "integer",
                                         "example": "0"
                                     },
                                     "companyName": {
@@ -62,8 +62,8 @@
                                         "example": "Rzeszów"
                                     },
                                     "postalCode": {
-                                        "type": "string",
-                                        "example": "35-005"
+                                        "type": "integer",
+                                        "example": "35005"
                                     },
                                     "street": {
                                         "type": "string",
@@ -79,7 +79,7 @@
                                     },
                                     "numberPhone": {
                                         "type": "integer",
-                                        "example": "17 282 50 00"
+                                        "example": "172825000"
                                     },
                                     "email": {
                                         "type": "email",
@@ -177,9 +177,9 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "type": {
-                                        "type": "boolean",
-                                        "example": "0"
+                                    "type_id": {
+                                        "type": "integer",
+                                        "example": "1"
                                     },
                                     "companyName": {
                                         "type": "string",
@@ -198,8 +198,8 @@
                                         "example": "Rzeszów"
                                     },
                                     "postalCode": {
-                                        "type": "string",
-                                        "example": "35-005"
+                                        "type": "integer",
+                                        "example": "35007"
                                     },
                                     "street": {
                                         "type": "string",
@@ -215,7 +215,7 @@
                                     },
                                     "numberPhone": {
                                         "type": "integer",
-                                        "example": "17 282 50 00"
+                                        "example": "172825001"
                                     },
                                     "email": {
                                         "type": "email",
@@ -392,7 +392,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "integer"
                         }

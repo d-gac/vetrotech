@@ -12,6 +12,8 @@ class Kontrahent extends Model
 {
     use HasFactory, SoftDeletes, SygnaturyRekordu;
 
+    protected $table = 'contractors';
+
     public $guarded = [];
 
     public function order()

@@ -43,9 +43,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 
     //Zamówienie
-
-    Route::get('zamowienie/generator', [ZamowienieController::class, 'orderNumberGenerator']);
-
     Route::get('zamowienie/allOrder', [ZamowienieController::class, 'allOrder']);
     Route::get('zamowienie/deleted', [ZamowienieController::class, 'deleted']);
     Route::get('zamowienie/renew/{id}', [ZamowienieController::class, 'renew']);

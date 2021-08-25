@@ -47,7 +47,7 @@ class LexiconController extends Controller
      *     @OA\Parameter(
      *         in="path",
      *         name="id",
-     *         required=true,
+     *         required=false,
      *         @OA\Schema(
      *           type="integer"
      *         )

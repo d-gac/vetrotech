@@ -62,12 +62,12 @@ class UserController extends Controller
      *                      @OA\Property(
      *                         property="password",
      *                         type="string",
-     *                         example="password123"
+     *                         example="Test123!@#"
      *                      ),
      *                      @OA\Property(
      *                         property="password_confirmation",
      *                         type="string",
-     *                         example="password123"
+     *                         example="Test123!@#"
      *                      ),
      *        )
      *     ),
@@ -135,7 +135,7 @@ class UserController extends Controller
      *                      @OA\Property(
      *                         property="password",
      *                         type="string",
-     *                         example="password123"
+     *                         example="Test123!@#"
      *                      ),
      *        )
      *     ),

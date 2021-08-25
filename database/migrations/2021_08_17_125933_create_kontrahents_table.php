@@ -13,7 +13,7 @@ class CreateKontrahentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kontrahents', function (Blueprint $table) {
+        Schema::create('contractors', function (Blueprint $table) {
             $table->id();
             $table->integer('type_id');
             $table->string('companyName')->nullable();
@@ -42,6 +42,6 @@ class CreateKontrahentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kontrahents');
+        Schema::dropIfExists('contractors');
     }
 }

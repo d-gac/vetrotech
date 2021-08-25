@@ -12,6 +12,8 @@ class Zamowienie extends Model
 {
     use HasFactory, SoftDeletes, SygnaturyRekordu;
 
+    protected $table = 'orders';
+
     public $guarded = [];
 
 

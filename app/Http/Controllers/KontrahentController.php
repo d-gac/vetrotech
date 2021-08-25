@@ -123,8 +123,8 @@ class KontrahentController extends Controller
      *        @OA\JsonContent(
      *             type="object",
      *                      @OA\Property(
-     *                         property="type",
-     *                         type="boolean",
+     *                         property="type_id",
+     *                         type="integer",
      *                         example="0"
      *                      ),
      *                      @OA\Property(
@@ -149,8 +149,8 @@ class KontrahentController extends Controller
      *                      ),
      *                      @OA\Property(
      *                         property="postalCode",
-     *                         type="string",
-     *                         example="35-005"
+     *                         type="integer",
+     *                         example="35005"
      *                      ),
      *                      @OA\Property(
      *                         property="street",
@@ -170,7 +170,7 @@ class KontrahentController extends Controller
      *                      @OA\Property(
      *                         property="numberPhone",
      *                         type="integer",
-     *                         example="17 282 50 00"
+     *                         example="172825000"
      *                      ),
      *                      @OA\Property(
      *                         property="email",
@@ -250,9 +250,9 @@ class KontrahentController extends Controller
      *        @OA\JsonContent(
      *             type="object",
      *                      @OA\Property(
-     *                         property="type",
-     *                         type="boolean",
-     *                         example="0"
+     *                         property="type_id",
+     *                         type="integer",
+     *                         example="1"
      *                      ),
      *                      @OA\Property(
      *                         property="companyName",
@@ -276,8 +276,8 @@ class KontrahentController extends Controller
      *                      ),
      *                      @OA\Property(
      *                         property="postalCode",
-     *                         type="string",
-     *                         example="35-005"
+     *                         type="integer",
+     *                         example="35007"
      *                      ),
      *                      @OA\Property(
      *                         property="street",
@@ -297,7 +297,7 @@ class KontrahentController extends Controller
      *                      @OA\Property(
      *                         property="numberPhone",
      *                         type="integer",
-     *                         example="17 282 50 00"
+     *                         example="172825001"
      *                      ),
      *                      @OA\Property(
      *                         property="email",

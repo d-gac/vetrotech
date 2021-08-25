@@ -13,7 +13,7 @@ class CreateZamowieniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('zamowienies', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('number');
             $table->integer('month');
@@ -24,14 +24,14 @@ class CreateZamowieniesTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('contractor_id');
             $table->integer('dimensions_id');
-            $table->string('width');
-            $table->string('height');
-            $table->string('thickness');
+            $table->integer('width');
+            $table->integer('height');
+            $table->integer('thickness');
             $table->integer('typeOfGlass_id');
             $table->integer('nameOfGlass_id');
             $table->string('treatment');
             $table->integer('quantity');
-            $table->integer('amount');
+            $table->double('amount');
             $table->integer('numberDepartment_id');
             $table->string('comments')->nullable();
             $table->integer('created_by')->nullable();
@@ -47,7 +47,7 @@ class CreateZamowieniesTable extends Migration
 
             $table->foreign('contractor_id')
                 ->references('id')
-                ->on('kontrahents')
+                ->on('contractors')
                 ->onDelete('cascade');
 
 //            $table->foreign('dimensions_id')
@@ -75,6 +75,6 @@ class CreateZamowieniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zamowienies');
+        Schema::dropIfExists('orders');
     }
 }

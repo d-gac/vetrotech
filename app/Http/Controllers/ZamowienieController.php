@@ -85,11 +85,6 @@ class ZamowienieController extends Controller
      *        @OA\JsonContent(
      *             type="object",
      *                      @OA\Property(
-     *                         property="orderNumber",
-     *                         type="string",
-     *                         example="ABC12345"
-     *                      ),
-     *                      @OA\Property(
      *                         property="admissionDate",
      *                         type="string",
      *                         example="2021-01-05"
@@ -318,11 +313,6 @@ class ZamowienieController extends Controller
      *        @OA\JsonContent(
      *             type="object",
      *                      @OA\Property(
-     *                         property="orderNumber",
-     *                         type="string",
-     *                         example="ABC12345_EDITED"
-     *                      ),
-     *                      @OA\Property(
      *                         property="admissionDate",
      *                         type="string",
      *                         example="2021-01-05"
@@ -471,7 +461,7 @@ class ZamowienieController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/zamowienie/allProduct",
+     *     path="/api/zamowienie/allOrder",
      *     tags={"Usunięte zamówienia"},
      *     summary="Lista wszystkich utworzonych zamówień",
      *     security={{"bearerAuth":{}}},

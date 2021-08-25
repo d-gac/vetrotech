@@ -18,7 +18,7 @@ class KontrahentRequest extends FormRequest
             'order.id' => 'string|in:asc,desc'
         ],
         self::METHOD_POST => [
-            'type_id' => 'required|integer|exists:lexicons,code_id,type,contractorType',
+            'type_id' => 'required|integer|exists:lexicons,code_id,type,contractorType,status,1',
             'companyName' => 'required|string|min:3',
             'lname' => 'required|string|min:3',
             'fname' => 'required|string|min:3',
@@ -32,7 +32,7 @@ class KontrahentRequest extends FormRequest
             'comments' => 'string|min:3',
         ],
         self::METHOD_PUT => [
-            'type_id' => 'required|integer|exists:lexicons,code_id,type,contractorType',
+            'type_id' => 'required|integer|exists:lexicons,code_id,type,contractorType,status,1',
             'companyName' => 'required|string|min:3',
             'lname' => 'required|string|min:3',
             'fname' => 'required|string|min:3',
@@ -75,7 +75,7 @@ class KontrahentRequest extends FormRequest
         return [
             'type_id.required' => 'Pole Typ jest wymagane',
             'type_id.integer' => 'Pole Typ musi zawierać wartość liczbową',
-            'type_id.exists' => 'Typ kontrahenta o takim ID nie istnieje',
+            'type_id.exists' => 'Typ kontrahenta o takim ID nie istnieje lub jest obecnie niedostępny',
 
             'companyName.required' => 'Pole Nazwa firmy jest wymagane',
             'companyName.string' => 'Pole Nazwa firmy musi zawierać tekst',
