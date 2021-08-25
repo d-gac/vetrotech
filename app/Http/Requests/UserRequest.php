@@ -20,7 +20,7 @@ class UserRequest extends FormRequest
         self::METHOD_POST => [
             'name' => 'required|string|min:3',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
+            'password' => ['required', 'min:6', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#@%]).*$/', 'confirmed'],
         ],
         self::METHOD_PUT => [
             'name' => 'required|string|min:3',
@@ -63,6 +63,8 @@ class UserRequest extends FormRequest
             'email.unique' => 'Ten Email już jest zajęty',
             'password.required' => 'Pole Hasło jest wymagane',
             'password.confirmed' => 'Hasła się nie zgadzają',
+            'password.regex' => 'Hasło jest zbyt łatwe. Aby wzmocnić siłę hasła dodaj brakujące elementy: wielką literę (A – Z), małą literę (a – z), cyfrę (0 - 9), znak specjalny (np. !, @, #)',
+            'password.min' => 'Hasło musi zawierać conajmniej 6 znaków',
         ];
     }
 }

@@ -10,13 +10,6 @@ use Illuminate\Http\Request;
 
 class ZamowienieController extends Controller
 {
-
-
-    public function orderNumberGenerator()
-    {
-
-    }
-
     /**
      * @OA\Tag(
      *     name="Zamówienie",
