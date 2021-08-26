@@ -62,7 +62,7 @@ class ProductRequest extends FormRequest
             'description.min' => 'Pole Opis musi składać się z conajmniej 10 znaków',
             'description.max' => 'Pole Opis może maksymalnie zawierać 65535 znaków',
             'status.required' => 'Pole Status jest wymagane',
-            'status.boolean' => 'Pole Status musi zawierać "0"/"1" lub 0/1',
+            'status.boolean' => 'Pole Status musi zawierać true/false lub 0/1',
         ];
     }
 }

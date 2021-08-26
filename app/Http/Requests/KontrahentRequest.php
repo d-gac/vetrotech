@@ -28,8 +28,8 @@ class KontrahentRequest extends FormRequest
             'numberHouse' => 'required|string|max:255',
             'numberApartment' => 'string|max:255',
             'numberPhone' => 'required|integer|digits:9',
-            'email' => 'required|email|max:255',
-            'comments' => 'string|min:3|max:255',
+            'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255',
+            'comments' => 'string|min:3|max:65535',
         ],
         self::METHOD_PUT => [
             'type_id' => 'required|integer|exists:lexicons,code_id,type,contractorType,status,1',
@@ -42,8 +42,8 @@ class KontrahentRequest extends FormRequest
             'numberHouse' => 'required|string|max:255',
             'numberApartment' => 'string|max:255',
             'numberPhone' => 'required|integer|digits:9',
-            'email' => 'required|email|max:255',
-            'comments' => 'string|min:3|max:255',
+            'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|max:255',
+            'comments' => 'string|min:3|max:65535',
         ],
         self::METHOD_DELETE => [
             'powod' => 'required|string',
@@ -116,12 +116,12 @@ class KontrahentRequest extends FormRequest
             'numberPhone.digits' => 'Pole Telefon musi składać się z dokładnie 9 znaków',
 
             'email.required' => 'Pole Email jest wymagane',
-            'email.email' => 'Pole Email musi być podobne do example@com.pl',
+            'email.regex' => 'Pole Email musi być podobne do example@com.pl',
             'email.max' => 'Pole Email może maksymalnie zawierać 255 znaków',
 
             'comments.string' => 'Pole Uwagi musi zawierać tekst',
             'comments.min' => 'Pole Uwagi musi składać się z conajmniej 3 znaków',
-            'comments.max' => 'Pole Uwagi może maksymalnie zawierać 255 znaków',
+            'comments.max' => 'Pole Uwagi może maksymalnie zawierać 65535 znaków',
         ];
     }
 }

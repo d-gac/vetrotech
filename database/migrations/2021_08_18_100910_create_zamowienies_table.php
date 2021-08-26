@@ -33,7 +33,7 @@ class CreateZamowieniesTable extends Migration
             $table->integer('quantity');
             $table->double('amount');
             $table->integer('numberDepartment_id');
-            $table->string('comments')->nullable();
+            $table->text('comments')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();

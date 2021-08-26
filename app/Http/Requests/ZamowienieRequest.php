@@ -33,7 +33,7 @@ class ZamowienieRequest extends FormRequest
             'quantity' => 'required|gt:0|integer',
             'amount' => 'required|gt:0|numeric|regex:/^\d*(\.\d{2})?$/',
             'numberDepartment_id' => 'required|integer|exists:lexicons,code_id,type,numberDepartment,status,1',
-            'comments' => 'string|min:5|max:255',
+            'comments' => 'string|min:5|max:65535',
         ],
         self::METHOD_PUT => [
             'orderNumber' => 'string|min:3',
@@ -51,7 +51,7 @@ class ZamowienieRequest extends FormRequest
             'quantity' => 'required|gt:0|integer',
             'amount' => 'required|gt:0|numeric|regex:/^\d*(\.\d{2})?$/',
             'numberDepartment_id' => 'required|integer|exists:lexicons,code_id,type,numberDepartment,status,1',
-            'comments' => 'string|min:5|max:255',
+            'comments' => 'string|min:5|max:65535',
         ],
         self::METHOD_DELETE => [
             'powod' => 'required|string',
@@ -142,7 +142,7 @@ class ZamowienieRequest extends FormRequest
 
             'comments.string' => 'Pole Uwagi musi zawierać tekst',
             'comments.min' => 'Pole Uwagi musi składać się z conajmniej 5 znaków',
-            'comments.max' => 'Pole Uwagi może zawierać maksymalnie 255 znaków',
+            'comments.max' => 'Pole Uwagi może maksymalnie zawierać 65535 znaków',
         ];
     }
 }

@@ -26,7 +26,7 @@ class CreateKontrahentsTable extends Migration
             $table->string('numberApartment')->nullable();
             $table->integer('numberPhone');
             $table->string('email');
-            $table->string('comments')->nullable();
+            $table->text('comments')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();
