@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     });
     Route::apiResource('product', ProductController::class);
 
-
+    
     //Kontrahent
     Route::prefix('kontrahent')->group(function () {
         Route::get('/allContractor', [KontrahentController::class, 'allContractor']);
