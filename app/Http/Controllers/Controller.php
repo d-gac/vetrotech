@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 /**
  * @OA\Info(
  *   title="Vetrotech",
- *   version="1.1",
+ *   version="1.05",
  *   contact={
  *     "email": "P1@zetorzeszow.pl"
  *   }),
