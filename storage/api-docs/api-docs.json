@@ -5,7 +5,7 @@
         "contact": {
             "email": "P1@zetorzeszow.pl"
         },
-        "version": "1.1"
+        "version": "1.05"
     },
     "paths": {
         "/api/kontrahent": {
@@ -731,11 +731,11 @@
                                     },
                                     "password": {
                                         "type": "string",
-                                        "example": "password123"
+                                        "example": "Test123!@#"
                                     },
                                     "password_confirmation": {
                                         "type": "string",
-                                        "example": "password123"
+                                        "example": "Test123!@#"
                                     }
                                 },
                                 "type": "object"
@@ -784,7 +784,7 @@
                                     },
                                     "password": {
                                         "type": "string",
-                                        "example": "password123"
+                                        "example": "Test123!@#"
                                     }
                                 },
                                 "type": "object"
@@ -884,10 +884,6 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "orderNumber": {
-                                        "type": "string",
-                                        "example": "ABC12345"
-                                    },
                                     "admissionDate": {
                                         "type": "string",
                                         "example": "2021-01-05"
@@ -1036,10 +1032,6 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "orderNumber": {
-                                        "type": "string",
-                                        "example": "ABC12345_EDITED"
-                                    },
                                     "admissionDate": {
                                         "type": "string",
                                         "example": "2021-01-05"
@@ -1167,7 +1159,7 @@
                 ]
             }
         },
-        "/api/zamowienie/allProduct": {
+        "/api/zamowienie/allOrder": {
             "get": {
                 "tags": [
                     "Usunięte zamówienia"

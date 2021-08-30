@@ -20,7 +20,7 @@ class LexiconController extends Controller
      * @OA\Get(
      *     path="/api/lexicon/{type}/{id}",
      *     tags={"Słownik"},
-     *     summary="Przywróć produkt",
+     *     summary="Wyświetl słownik",
      *     security={{"bearerAuth":{}}},
      *
      *     @OA\Response(

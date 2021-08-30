@@ -29,24 +29,30 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 
     //Produkt
-    Route::get('product/allProduct', [ProductController::class, 'allProduct']);
-    Route::get('product/deleted', [ProductController::class, 'deleted']);
-    Route::get('product/renew/{id}', [ProductController::class, 'renew']);
-    Route::apiResource('/product', ProductController::class);
+    Route::prefix('product')->group(function () {
+        Route::get('/allProduct', [ProductController::class, 'allProduct']);
+        Route::get('/deleted', [ProductController::class, 'deleted']);
+        Route::get('/renew/{id}', [ProductController::class, 'renew']);
+        Route::apiResource('/', ProductController::class);
+    });
 
 
     //Kontrahent
-    Route::get('kontrahent/allContractor', [KontrahentController::class, 'allContractor']);
-    Route::get('kontrahent/deleted', [KontrahentController::class, 'deleted']);
-    Route::get('kontrahent/renew/{id}', [KontrahentController::class, 'renew']);
-    Route::apiResource('/kontrahent', KontrahentController::class);
+    Route::prefix('kontrahent')->group(function () {
+        Route::get('/allContractor', [KontrahentController::class, 'allContractor']);
+        Route::get('/deleted', [KontrahentController::class, 'deleted']);
+        Route::get('/renew/{id}', [KontrahentController::class, 'renew']);
+        Route::apiResource('/', KontrahentController::class);
+    });
 
 
     //Zamówienie
-    Route::get('zamowienie/allOrder', [ZamowienieController::class, 'allOrder']);
-    Route::get('zamowienie/deleted', [ZamowienieController::class, 'deleted']);
-    Route::get('zamowienie/renew/{id}', [ZamowienieController::class, 'renew']);
-    Route::apiResource('/zamowienie', ZamowienieController::class);
+    Route::prefix('zamowienie')->group(function () {
+        Route::get('/allOrder', [ZamowienieController::class, 'allOrder']);
+        Route::get('/deleted', [ZamowienieController::class, 'deleted']);
+        Route::get('/renew/{id}', [ZamowienieController::class, 'renew']);
+        Route::apiResource('/', ZamowienieController::class);
+    });
 
 
     //Słownik
