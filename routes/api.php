@@ -33,8 +33,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('/allProduct', [ProductController::class, 'allProduct']);
         Route::get('/deleted', [ProductController::class, 'deleted']);
         Route::get('/renew/{id}', [ProductController::class, 'renew']);
-        Route::apiResource('/', ProductController::class);
     });
+    Route::apiResource('product', ProductController::class);
 
 
     //Kontrahent
@@ -42,8 +42,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('/allContractor', [KontrahentController::class, 'allContractor']);
         Route::get('/deleted', [KontrahentController::class, 'deleted']);
         Route::get('/renew/{id}', [KontrahentController::class, 'renew']);
-        Route::apiResource('/', KontrahentController::class);
     });
+    Route::apiResource('kontrahent', KontrahentController::class);
 
 
     //Zamówienie
@@ -51,8 +51,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('/allOrder', [ZamowienieController::class, 'allOrder']);
         Route::get('/deleted', [ZamowienieController::class, 'deleted']);
         Route::get('/renew/{id}', [ZamowienieController::class, 'renew']);
-        Route::apiResource('/', ZamowienieController::class);
     });
+    Route::apiResource('zamowienie', ZamowienieController::class);
 
 
     //Słownik
