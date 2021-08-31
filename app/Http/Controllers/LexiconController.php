@@ -49,7 +49,7 @@ class LexiconController extends Controller
      *         name="id",
      *         required=false,
      *         @OA\Schema(
-     *           type="integer"
+     *           type="integer",
      *         )
      *     ),
      * )

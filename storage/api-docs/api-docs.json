@@ -379,7 +379,7 @@
                 "tags": [
                     "Słownik"
                 ],
-                "summary": "Przywróć produkt",
+                "summary": "Wyświetl słownik",
                 "parameters": [
                     {
                         "name": "type",
@@ -392,7 +392,6 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "required": false,
                         "schema": {
                             "type": "integer"
                         }
